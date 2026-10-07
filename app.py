@@ -519,4 +519,4 @@ PAGE_FUNCS = {"Dashboard": page_dashboard, "Upload Dataset": page_upload, "Sensi
               "Configure Anonymization": page_configure, "Results": page_results, "Privacy Report": page_report}
 with animated_container(st.session_state["_epoch"], st.session_state["_direction"]):
     PAGE_FUNCS[page]()
-    # 8 oct 2026
+    # 8 / oct / 2026
