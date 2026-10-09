@@ -28,6 +28,7 @@ st.set_page_config(page_title="Saudi AI-Assisted Data Anonymization", page_icon=
 inject_global_css()
 
 DEMO_PATH = os.path.join(os.path.dirname(__file__), "data", "sample_saudi_dataset.csv")
+POWER_BI_URL = "https://app.powerbi.com/view?r=eyJrIjoiMjhjNjhiNzUtZWI0Yy00MmYzLTgzM2EtZjRlOTEzOTVjYjAzIiwidCI6ImYyZTA2ZDNlLTQ3YTUtNDI0ZS04NGQ1LTc4MThjZDk5YjBmYSIsImMiOjl9"
 RISK_ICON = {"HIGH": "🔴 HIGH", "MEDIUM": "🟠 MEDIUM", "LOW": "🟢 LOW"}
 GREEN, RED, AMBER = "#34D399", "#F87171", "#38BDF8"
 MAX_ROWS = 20000
@@ -450,6 +451,18 @@ def page_results():
     d1.download_button("⬇️ Anonymized CSV", csv_bytes(anon), f"{stem}_anonymized.csv", "text/csv")
     d2.download_button("⬇️ Anonymized Excel", xlsx_bytes(anon), f"{stem}_anonymized.xlsx",
                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+    st.divider()
+
+    section_title(
+        "Analytics Dashboard",
+        "Explore business insights generated from the anonymized dataset."
+    )
+
+    st.link_button(
+        "📊 Open Power BI Analytics Dashboard",
+        POWER_BI_URL,
+        use_container_width=True
+    )
     next_button("Next → Generate privacy report", "Privacy Report")
 
 
